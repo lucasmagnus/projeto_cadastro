@@ -26,7 +26,6 @@ angular.module('Authentication')
 
                     }, function errorCallback(response) {
                         response.message = 'Email ou senha incorretos!';
-                        console.log(response)
                         callback(response);
                     });
                 };
@@ -51,7 +50,6 @@ angular.module('Authentication')
 
                     }, function errorCallback(response) {
                         response.message = 'Email ou senha inválido!';
-                        console.log(response)
                         callback(response);
                     });
                 };

@@ -36,7 +36,6 @@ angular.module('Home')
                 service.deleteCustomer = function (customer, callback) {
 
                     var currentUser = $cookieStore.get('globals').currentUser
-                    console.log(customer)
                     customer.active = 0;
 
                     $http({
