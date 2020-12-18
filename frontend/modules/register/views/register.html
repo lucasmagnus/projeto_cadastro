@@ -1,0 +1,167 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg ">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-10" style="display: flex;">
+            <img src="../../../assets/logo_white.png" class="rounded d-block" alt="..." style="margin-left: 2em;"
+                width="32" height="32">
+        </div>
+        <div class="col-md-2 text-right">
+           <a href="#/login"><button type="button" class="btn btn-primary">Sair da conta</button></a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <div class="card shadow mt-n1" style="margin-top: 1em;">
+        <div class="card-header py-3 ">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5 class="font-weight-bold d-inline-block">Cadastrar novo cliente</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="inputName" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="inputName" ng-model="customer.name"
+                            placeholder="Nome">
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <label for="inputCnpjCpf" class="form-label">CNPJ/CPF</label>
+                        <input type="text" class="form-control" id="inputCnpjCpf" ng-model="customer.cnpjCpf"
+                            placeholder="CNPJ ou CPF">
+                    </div>
+                </div>
+            </form>
+
+            <hr />
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label for="inputPhone" class="form-label">Telefones</label>
+                        <input type="text" class="form-control" id="inputPhone" ng-model="phone"
+                            placeholder="(xx) xxxxx-xxxx">
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary form-margin" ng-click="addPhone(phone)">Adicionar
+                            telefone</button>
+                    </div>
+                </div>
+                <div ng-show="error_phone" class="alert alert-danger col-xs-12 col-sm-6" style="margin-top: 1em;">
+                    {{error_phone}}</div>
+            </form>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <table class="table table-bordered col-xs-12 col-sm-6 table-spacing" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Telefone</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="phone in customer.phones">
+                                <td>{{phone.phone}}</td>
+                                <td><button type="button" class="btn btn-danger" ng-click="removePhone(phone)">
+                                        Remover</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr />
+            <form>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <label for="inputStreet" class="form-label">Logradouro</label>
+                        <input type="text" class="form-control" id="inputStreet" ng-model="address.street"
+                            placeholder="Rua, avenida...">
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label for="inputNumber" class="form-label">Nº</label>
+                        <input type="text" class="form-control" id="inputNumber" ng-model="address.number"
+                            placeholder="Nº">
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <label for="inputDistrict" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" id="inputDistrict" ng-model="address.district"
+                            placeholder="Bairro">
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label for="inputCep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="inputCep" ng-model="address.cep" placeholder="CEP">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-xs-12 col-sm-3">
+                        <label for="inputCity" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="inputCity" ng-model="address.city"
+                            placeholder="Cidade">
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <label for="inputUf" class="form-label">UF</label>
+                        <input type="text" class="form-control" id="inputUf" ng-model="address.uf" placeholder="Estado">
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <label for="inputComplement" class="form-label">Complemento</label>
+                        <input type="text" class="form-control" id="inputComplement" ng-model="address.complement"
+                            placeholder="Complemento">
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <input type="checkbox" class="form-check-input" style="margin-top: 40px;" id="inputPrincipal"
+                            ng-model="address.isPrincipal">
+                        <label class="form-check-label" style="margin-top: 35px;" for="inputPrincipal">Principal</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <button type="submit" class="btn btn-primary form-margin"
+                            ng-click="addAddress(address)">Adicionar endereço</button>
+                    </div>
+                </div>
+                <div ng-show="error_address" class="alert alert-danger col-xs-12 col-sm-6" style="margin-top: 1em;">
+                    {{error_address}}</div>
+            </form>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <table class="table table-bordered col-xs-12 col-sm-6 table-spacing" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Endereço</th>
+                                <th>Principal</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="address in customer.adresses">
+                                <td>{{address.street + ', nº' + address.number + " " + address.complement + ' - ' +
+                                    address.district + ' - '
+                                    + address.cep + " " + address.city + "/" + address.uf}}</td>
+                                <td>{{address.isPrincipal == 1 ? 'Sim': 'Não'}}</td>
+                                <td><button type="button" class="btn btn-danger" ng-click="removeAddress(address)">
+                                        Remover</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="d-flex justify-content-between">
+                <div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success" ng-click="save()">Salvar cadastro</button>
+                </div>
+            </div>
+            <div ng-show="message_save" class="alert alert-success" style="margin-top: 1em;">{{message_save}}</div>
+            <div ng-show="message_save_error" class="alert alert-danger" style="margin-top: 1em;">
+                {{message_save_error}}</div>
+        </div>
+    </div>
+
+</div>

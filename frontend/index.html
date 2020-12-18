@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="SistemaCadastro">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div>
+        <div >
+          <div>
+            <div ng-view></div>
+          </div>
+        </div>
+      </div>
+</body>
+
+
+
+<script src="//code.angularjs.org/1.2.20/angular.js"></script>
+<script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+<script src="scripts/app.js"></script>
+<script src="modules/authentication/services.js"></script>
+<script src="modules/authentication/controllers.js"></script>
+<script src="modules/home/controllers.js"></script>
+<script src="modules/home/services.js"></script>
+<script src="modules/register/controllers.js"></script>
+<script src="modules/register/services.js"></script>
+
+</html>

@@ -1,0 +1,21 @@
+<div class="login-page">
+
+
+    <div class="form">
+        <img src="../../../assets/logo.png" class="rounded mx-auto d-block" alt="...">
+
+        <input type="text" placeholder="Email" id="email" name="email" ng-model="email" required />
+        <input type="password" placeholder="Senha" id="password" name="password" ng-model="password" required />
+
+        <form class="login-form" ng-submit="login()" role="form">
+            <button class="btn btn-primary" type="submit" ng-disabled="form.$invalid || dataLoading">Entrar</button>
+        </form>
+
+        <form class="login-form" ng-submit="register()" role="form">
+            <button class="btn btn-danger margin-xs" type="submit" ng-disabled="form.$invalid || dataLoading">Criar
+                conta</button>
+        </form>
+
+        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+    </div>
+</div>

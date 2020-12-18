@@ -1,0 +1,60 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg ">
+    <div class="row" style="width: 100%;">
+        <div class="col-md-10" style="display: flex;">
+            <img src="../../../assets/logo_white.png" class="rounded d-block" alt="..." style="margin-left: 2em;"
+                width="32" height="32">
+        </div>
+        <div class="col-md-2 text-right">
+           <a href="#/login"><button type="button" class="btn btn-primary">Sair da conta</button></a>
+        </div>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="card shadow mb-4" style="margin-top: 1em;">
+        <div class="card-header py-3 ">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h5 class="font-weight-bold d-inline-block">Lista de clientes</h5>
+                </div>
+                <div>
+                    <a ng-href="#/register"><button type="button" class="btn btn-primary float-right">Novo
+                        cliente</button></a>
+                </div>
+           </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div ng-show="error" class="alert alert-danger col-xs-12 col-sm-6" style="margin-top: 1em;">{{error}}</div>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th class="table-fit">ID</th>
+                            <th>Nome</th>
+                            <th>CPF/CNPJ</th>
+                            <th>Telefones</th>
+                            <th>Endereços</th>
+                            <th class="table-fit">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="customer in customers">
+                            <td>{{customer.id}}</td>
+                            <td>{{customer.name}}</td>
+                            <td>{{customer.cnpjCpf}}</td>
+                            <td>{{transformPhones(customer.phones)}}</td>
+                            <td>{{transformAdresses(customer.adresses)}}</td>
+                            <td><button type="button" class="btn btn-danger" ng-click="deleteCustomer(customer)">
+                                    Excluir</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
